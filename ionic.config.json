@@ -1,5 +1,7 @@
 {
-  "name": "HMDSchoolApp",
-  "integrations": {},
+  "name": "full-firebase-ionic4",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

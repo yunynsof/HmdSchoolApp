@@ -1,14 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="light" (click)="iconStudent()"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title-ios" text-capitalize><strong>HMD</strong> School</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon color="light" slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment class="tabs" mode="md" [(ngModel)]="selectSegment" scrollable >
+      <ion-segment-button value="principal" class="segmentButton" color="light">
+        <ion-label><strong> Principal</strong></ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="profile" color="light">
+        <ion-label><strong> Perfil</strong> </ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+
+<ion-content class="ion-align-self-center" size-md="6.4" size-lg="5" size-xs="11.5" size-sm="10" size-xl="5">
+  <app-profile *ngIf="selectSegment == 'profile'" [generalStudent]='generalStudent'></app-profile>
+  <app-principalscreen *ngIf="selectSegment == 'principal'" [generalStudent]='generalStudent'></app-principalscreen>
 </ion-content>

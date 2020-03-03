@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="light" (click)="iconStudent()"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title-ios"><strong>Calendario</strong></ion-title>
+    <div class="right">
+      <input matInput [matDatepicker]="picker" readonly class="input">
+      <mat-datepicker-toggle matSuffix [for]="picker" class="colorIcon"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="">
+    <br>
+  <ion-virtual-scroll [items]="calendar" approxItemHeight="320px">
+    <ion-grid *virtualItem="let item;">
+      <ion-row>
+        <ion-col size-md="2" size-lg="2" size-xs="2" size-sm="2" size-xl="2">
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-label class="sizeFontDate"><strong>{{item.date}}</strong></ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="sizeFontName"><strong>{{item.month}}</strong></ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-icon name="time" color="dark"></ion-icon>
+            <ion-label class="sizeFontDesc">{{item.hour}}</ion-label>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title class="sizeFontTitle">{{ item.title }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-row>{{ item.content }}</ion-row>
+              <ion-row>
+                <ion-icon size="small" name="pin"></ion-icon>
+                <ion-label class="sizeFontCollege">{{item.college}}</ion-label>
+              </ion-row>
+            </ion-card-content>
+
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-virtual-scroll>
+</div>
+</ion-content>

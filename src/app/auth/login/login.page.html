@@ -1,0 +1,51 @@
+<ion-content class="ion-padding">
+  <div class="main">
+  <br><br><br>
+  <br><br><br>
+  <form #form="ngForm" (ngSubmit)="login(form)">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="ion-justify-content-center" size-md="10" size-lg="5" size-xs="14" size-sm="10" size-xl="5">
+          <div class="ion-text-center">
+            <img src="./assets/icon/HMDSchool2.png">
+          </div>
+          <br>
+          <div class="ion-padding">
+            <ion-col>
+              <h5>Bienvenido</h5>
+            </ion-col>
+            <div class="login-input">
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-input class="input" name="username" type="email" placeholder="Correo Electronico" ngModel required>
+                    </ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-input class="input" name="password" type="password" placeholder="Contraseña" ngModel required
+                      (keyup.enter)="login(form)"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </div>
+          </div>
+          <br>
+          <div class="ion-padding">
+            <ion-button color="primary" size="large" type="submit" expand="block">Iniciar Sesión
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-label class="small">Ha olvidado su contraseña?</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  </div>
+</ion-content>

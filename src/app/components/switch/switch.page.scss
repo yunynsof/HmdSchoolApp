@@ -1,0 +1,110 @@
+.img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  width: 40%;
+  height: 40%;
+}
+
+.card {
+  margin-left: 5%;
+}
+.price {
+  font-size: 16px;
+  float: left;
+  margin: 3px;
+}
+.inline {
+  font-size: 15px;
+  margin-inline-end: 5px;
+  text-decoration: line-through;
+}
+.subtitle {
+  font-size: 12px;
+  color: rgb(120, 120, 120);
+}
+.badge {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  background-color: rgba(12, 12, 12, 0.75);
+  border-radius: 0;
+}
+
+@media screen and (orientation: portrait) {
+  .content {
+    width: 100%;
+    height: 100%;
+    background: url("../../../assets/sidemenu.jpeg") no-repeat fixed center;
+    background-size: cover !important;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .content {
+    background: url("../../../assets/sidemenu.jpeg") no-repeat fixed center;
+    background-size: cover !important;
+  }
+  .img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    width: 20%;
+    height: 20%;
+  }
+  .card {
+    margin-left: 25%;
+  }
+}
+
+.contentBig {
+  background: url("../../../assets/sidemenu.jpeg") no-repeat fixed center;
+  background-size: cover !important;
+}
+
+.bg-image {
+  height: 100%;
+  width: 100%;
+  background-image: url("../../../assets/sidemenu.jpeg");
+  background-size: cover;
+  background-position: center;
+  padding: 55px 15px 75px 15px;
+  overflow: scroll;
+}
+
+.margin {
+  margin-left: 5%;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  position: relative;
+  // justify-content: space-between;
+
+  .userName {
+    font-size: 18px;
+  }
+
+  .userDetail {
+    display: flex;
+    flex-direction: column;
+  }
+  .editSection {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+.iconSize {
+  font-size: 22px;
+}
+
+ion-header,
+ion-toolbar {
+  --background: #2e7cbc;
+}
+
+.title-ios {
+  --color: white;
+}

@@ -1,0 +1,214 @@
+.bg-image {
+  height: 100%;
+  width: 100%;
+  background-image: url("../../../assets/icon/class4.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 55px 15px 75px 15px;
+  overflow: scroll;
+}
+
+.labelHome {
+  margin-left: 10%;
+  margin-right: 10%;
+  font-weight: 300;
+  font-size: 0.7rem !important;
+  text-align: center;
+}
+
+.labelIndice {
+  margin-left: 20%;
+  margin-right: 10%;
+  font-weight: 300;
+  font-size: 1rem !important;
+  text-align: center;
+}
+
+.labelAcademico {
+  margin-left: 0%;
+  margin-right: 10%;
+  font-weight: 300;
+  font-size: 1rem !important;
+  text-align: center;
+}
+
+.tableStyle {
+  td {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  th {
+    font-weight: bold;
+    font-size: 0.75rem !important;
+    text-align: center;
+    background-color: rgb(225, 236, 61);
+  }
+}
+
+.barColorUp {
+  background-color: rgb(236, 197, 42);
+}
+.barColorDown {
+  background-color: rgb(47, 163, 12);
+}
+
+.sizeFontName {
+  font-size: 16px;
+}
+.sizeFontDesc {
+  font-size: 15px;
+}
+
+.sizeFontMail{
+  font-size: 15px;
+  color: #2e7cbc;
+}
+
+.divPadding {
+  margin-left: 15%;
+}
+
+.contentSection {
+  background: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .radioSection {
+    padding-left: 10px;
+  }
+  .f-nav {
+    display: flex;
+    justify-content: baseline;
+  }
+  .f-form {
+    padding-top: 10px;
+    margin-left: 14px;
+  }
+  .flex {
+    display: flex;
+  }
+  .f-gender {
+    margin-right: 15px;
+    margin-left: 3px;
+  }
+  .f-list {
+    margin-top: 3px;
+  }
+  .f-item {
+    padding-left: 0px;
+  }
+
+  .active {
+    --background: var(--ion-color-primary);
+    background: var(--ion-color-primary);
+  }
+  .btnOutline {
+    border: 1px solid var(--ion-color-primary);
+    --border: 1px solid var(--ion-color-primary);
+    border-radius: 5px;
+  }
+  .homeBtn {
+    max-width: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+  }
+
+  .officeBtn {
+    margin-left: 10px;
+    max-width: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+  }
+  .BtnSection {
+    display: flex;
+  }
+  .btnColorWhite {
+    color: #fff;
+  }
+  .btnColorBlack {
+    color: #000;
+  }
+}
+
+.ionSegementSection {
+  background: #a81b1b;
+}
+
+.segment-button-indicator {
+  align-self: center;
+  background-color: var(--indicator-color-checked, var(--color-checked));
+  background: #fff;
+  height: 5px;
+  width: 65px;
+}
+.ion-segment-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  position: relative;
+  // justify-content: space-between;
+
+  .userName {
+    font-size: 18px;
+  }
+
+  .userDetail {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+  }
+  .editSection {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+.iconSize {
+  font-size: 22px;
+}
+
+.colorAddres {
+  font-size: 0.9rem;
+  color: rgb(43, 158, 235);
+}
+
+.colorInfo {
+  font-size: 0.9rem;
+  color: rgb(43, 158, 235);
+}
+
+.sizeDiv {
+  margin-left: 2rem;
+  margin-right: 1rem;
+}
+
+.sizeDivTitle {
+  margin-left: 2.3rem;
+}
+
+.ionCardColor {
+  background-color: white;
+}
+
+
+br {
+  height: 0.1rem;
+}
+
+
+.backgroundDiv{
+  background-color: rgb(228, 224, 224);
+  height: 0.1rem!important;
+}

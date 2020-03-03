@@ -1,0 +1,124 @@
+<div class="">
+  <ion-grid>
+    <div class="ion-text-center">
+      <h5><strong>Buen Día, {{generalStudent.user_name}}</strong></h5>
+    </div>
+    <div class="labelHome">
+      <ion-label>Bienvenido a nuestra app, podrás consultar en todo momento y en cualquier momento los datos de tus
+        hijos.</ion-label>
+    </div>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-toolbar>
+            <ion-card-content>
+              <ion-row>
+                <ion-col size-md="1" size-lg="1" size-xs="1" size-sm="1" size-xl="1"></ion-col>
+                <div class="ion-text-center">
+                  <ion-col>
+                    <div class="clearfix">
+                      <div class="c100 p{{generalStudent.globalAverage}} small">
+                        <span>{{generalStudent.globalAverage}}%</span>
+                        <div class="slice">
+                          <div class="bar"></div>
+                          <div class="fill"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </ion-col>
+                  <ion-row class="labelIndice">
+                    <ion-label><strong>Indice</strong></ion-label>
+                  </ion-row>
+                  <ion-row class="labelAcademico">
+                    <ion-label><strong>Académico</strong></ion-label>
+                  </ion-row>
+                </div>
+                <ion-col size-md="2" size-lg="2" size-xs="2" size-sm="2" size-xl="2"></ion-col>
+                <ion-col size-md="0.1" size-lg="0.1" size-xs="0.1" size-sm="0.1" size-xl="0.1"></ion-col>
+                <ion-col>
+                  <ion-row>
+                    <ion-col class="barColorUp" size-md="0.1" size-lg="0.1" size-xs="0.1" size-sm="0.1" size-xl="0.1">
+                    </ion-col>
+                    <ion-col>
+                      <ion-row>
+                        <ion-col></ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-label class="sizeFontName"><strong>{{generalStudent.student}}</strong></ion-label>
+                      </ion-row>
+                      <ion-row>
+                        <ion-label class="sizeFontDesc">{{generalStudent.studentId}}</ion-label>
+                      </ion-row>
+                      <ion-row>
+                        <ion-label class="sizeFontDesc">{{generalStudent.courseSection}}</ion-label>
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <ion-row>
+                        <ion-col></ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col></ion-col>
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col class="barColorDown" size-md="0.1" size-lg="0.1" size-xs="0.1" size-sm="0.1" size-xl="0.1">
+                    </ion-col>
+                    <ion-col>
+                      <ion-row>
+                        <ion-col></ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-label class="sizeFontName"><strong>{{generalStudent.professor}}</strong></ion-label>
+                      </ion-row>
+                      <ion-row>
+                        <ion-label class="sizeFontDesc">{{generalStudent.professorDesc}}</ion-label>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col></ion-col>
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-toolbar>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <ion-card>
+          <ion-toolbar>
+            <ion-card-header>
+              <ion-card-title><strong>Horario Escolar</strong></ion-card-title>
+            </ion-card-header>
+            <ion-row>
+              <ion-col>
+                <div class="tableStyle">
+                  <table datatable [dtOptions]="dtOptions" class="stripe row-border order-column">
+                    <thead>
+                      <tr>
+                        <th>Hora</th>
+                        <th>Asignatura</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let note of generalStudent.class">
+                        <td>{{note.hour}}</td>
+                        <td>{{note.class}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-toolbar>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

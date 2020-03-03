@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light" (click)="iconStudent()"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title-ios"><strong>Agenda</strong></ion-title>
+    <div class="right">
+      <input matInput [matDatepicker]="picker" readonly class="input">
+      <mat-datepicker-toggle matSuffix [for]="picker" class="colorIcon"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="">
+    <br>
+    <ion-virtual-scroll [items]="schedule" approxItemHeight="320px">
+      <ion-grid *virtualItem="let item;">
+        <ion-row>
+          <span class="line-style"></span>
+          <ion-col size-md="2.5" size-lg="2.5" size-xs="2.5" size-sm="2.5" size-xl="2.5">
+            <ion-row>
+              <ion-label class="circulo"></ion-label>
+            </ion-row>
+          </ion-col>
+          <ion-col>
+            <ion-row>
+              <ion-label class="sizeFontDate"><strong>{{item.date}}</strong></ion-label>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size-md="0.3" size-lg="0.24" size-xs="0.6" size-sm="0.34" size-xl="0.6">
+          </ion-col>
+          <ion-col size-md="1" size-lg="1" size-xs="1" size-sm="1" size-xl="1">
+            <ion-row>
+              <ion-col></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col></ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <ion-row>
+                  <ion-col size-md="3.5" size-lg="3.5" size-xs="3.5" size-sm="3.5" size-xl="3.5">
+                    <ion-avatar style="height: 40px; width: 40px;">
+                      <img src="./assets/icon/miss.png">
+                    </ion-avatar>
+                  </ion-col>
+                  <ion-col>
+                    <ion-row>
+                      <ion-label class="sizeFontName"><strong>{{item.professor}}</strong></ion-label>
+                    </ion-row>
+                    <ion-row>
+                      <ion-label class="sizeFontDesc">Asunto: {{item.descriptionItem}}</ion-label>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+              </ion-card-header>
+              <ion-card-content>{{ item.content }}</ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-virtual-scroll>
+  </div>
+</ion-content>

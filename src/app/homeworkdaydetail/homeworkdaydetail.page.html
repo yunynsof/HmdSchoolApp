@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title-ios" color="light"><strong>{{date}}</strong></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="">
+    <br><br><br>
+    <ion-grid>
+      <div>
+        <br>
+        <ion-virtual-scroll [items]="assignments">
+          <div *virtualItem="let item;">
+            <ion-item button mode="ios" (click)="detailPage(item)">
+              <div class="ProfileAvatr" slot="start">
+                <ion-avatar class="chatImage">
+                  <div>
+                    <img  src="./assets/icon/homework.png">
+                  </div>
+                </ion-avatar>
+              </div>
+              <ion-label>
+                <div class="withcount">
+                  <div class="nameAvatar">
+                    <h2>{{item.detail}}</h2>
+
+                  </div>
+                </div>
+                <p class="widthHalf">{{item.class}}</p>
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-virtual-scroll>
+        <br>
+      </div>
+    </ion-grid>
+  </div>
+</ion-content>

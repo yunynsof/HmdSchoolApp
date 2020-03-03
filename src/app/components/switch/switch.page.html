@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="title-ios" text-capitalize>Alumnos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon size="large" name="close-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <br><br><br><br>
+    <div>
+      <img src="./assets/icon/HMDSchool2.png" class="img">
+    </div>
+    <ion-grid>
+      <br>
+      <ion-row>
+        <ion-col class="margin">
+          <h5><strong>Selecciona un estudiante:</strong></h5>
+        </ion-col>
+      </ion-row>
+      <br><br><br>
+
+      <ion-row>
+        <ion-col *ngFor="let item of items;" size="12">
+          <div class="card">
+            <div class="userSection" padding-horizontal (click)="selectStudent(item)">
+              <ion-avatar slot="start" class="profile">
+                <img src="{{item.img}}">
+              </ion-avatar>
+              <div padding-start class="userDetail">
+                <br>
+                <ion-label class="userName"><strong>
+                  {{item.name }}</strong>
+                </ion-label>
+                <ion-text>{{item.studentId}}</ion-text>
+              </div>
+            </div>
+          </div>
+          <br>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <br><br><br>
+  </div>
+
+</ion-content>
