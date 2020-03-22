@@ -1,25 +1,28 @@
 <ion-header>
   <ion-toolbar>
+    <div class="divHeader">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button color="light" (click)="iconStudent()"></ion-menu-button>
     </ion-buttons>
     <ion-title class="title-ios"><strong>Clases</strong></ion-title>
   </ion-toolbar>
+  </div>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="">
-  <ion-virtual-scroll [items]="class" approxItemHeight="320px">
-    <ion-card *virtualItem="let item; let itemBounds = bounds;" mode="ios">
-      <img src="{{item.img}}" />
-      <div (click)="detailPage(item)">
-        <div class="card-title">{{ item.name }}</div>
-        <div class="card-timeTable">{{ item.timetable }}</div>
-        <div class="card-professorName">{{ item.professorName }}</div>
-      </div>
-    </ion-card>
-  </ion-virtual-scroll>
-  <br>
-</div>
+        <div *ngFor="let item of class">
+          <ion-card (click)="detailPage(item)" mode="ios">
+            <img src="{{item.img}}" />
+            <div>
+              <div class="card-title">{{ item.name }}</div>
+              <div class="card-timeTable">{{ item.timetable }}</div>
+              <div class="card-professorName">{{ item.professorName }}</div>
+            </div>
+          </ion-card>
+        </div>
+    <br>
+  </div>
 </ion-content>
-

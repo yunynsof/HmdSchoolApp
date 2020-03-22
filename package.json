@@ -30,6 +30,7 @@
     "@angular/pwa": "^0.13.6",
     "@angular/router": "^8.2.2",
     "@angular/service-worker": "^8.2.2",
+    "@auth0/angular-jwt": "^4.0.0",
     "@ionic-native/camera": "^5.2.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/device": "^5.0.0",

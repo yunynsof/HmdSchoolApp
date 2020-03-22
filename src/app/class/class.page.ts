@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { AlertService } from '../services/alert/alert.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-class',
@@ -10,102 +11,99 @@ import { AlertService } from '../services/alert/alert.service';
 })
 export class ClassPage implements OnInit {
 
-  class = [];
+  class: any = [];
+  configuration: any = [];
 
   constructor(
     private router: Router,
     private appComponent: AppComponent,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private authService: AuthService,
   ) {
     this.alertService.present();
-      this.class.push(
-        {
-          idClass: '1',
-          name: 'Español',
-          timetable:'Lu Ma Mi Ju Vi',
-          professorName: 'Ismael Torres',
-          img: '/assets/icon/test-10.png',
-        },
-        {
-          idClass: '2',
-          name: 'Matematicas',
-          timetable:'Lu, Ma, Mi, Ju, Vi',
-          professorName: 'Carlos Estrada',
-          img: '/assets/icon/test-15.png',
-        },
-        {
-          idClass: '4',
-          name: 'Ingles',
-          timetable:'Lu, Mi, Ju',
-          professorName: 'Ismael Torres',
-          img: '/assets/icon/test-3.png',
-        },
-        {
-          idClass: '3',
-          name: 'Ciencias Naturales',
-          timetable:'Lu, Ma, Mi, Ju, Vi',
-          professorName: 'Carlos Estrada',
-          img: '/assets/icon/test-13.png',
-        },
-        {
-          idClass: '7',
-          name: 'Ciencias Sociales',
-          timetable:'Lu, Ma, Mi, Ju, Vi',
-          professorName: 'Carlos Estrada',
-          img: '/assets/icon/test-14.png',
-        },
-        {
-          idClass: '6',
-          name: 'Musica',
-          timetable:'Mi',
-          professorName: 'Sandra Espinal',
-          img: '/assets/icon/test-6.png',
-        },
-        {
-          idClass: '8',
-          name: 'Educacion Fisica',
-          timetable:'Ma, Vi',
-          professorName: 'Nadia Villatoro',
-          img: '/assets/icon/test-12.png',
-        },
-        {
-          idClass: '9',
-          name: 'Computación',
-          timetable:'Lu, Mi, Vi',
-          professorName: 'Marina Perez',
-          img: '/assets/icon/test-11.png',
-        }
-        );
-        this.alertService.dismiss();
+    this.getClass()
   }
 
   ngOnInit() {
-    
+
   }
 
-list;
-  transfomList(list){
-    this.list= [{
-      "day": "Lu"
-    },{
-      "day": "Ma"
-    },{
-      "day": "Mi"
-    },{
-      "day": "Ju"
-    },{
-      "day": "Vi"
-    }]
+  transfomList(list) {
+
+    var timetable;
+    let lun, mar, mie, jue, vie;
+    for (let i = 0; i < list.length; i++) {
+
+      if (list[i].codeDaySp == 'LUN') {
+        lun = list[i].codeDaySp;
+      } else
+        if (list[i].codeDaySp == 'MAR') {
+          mar = list[i].codeDaySp;
+        } else
+          if (list[i].codeDaySp == 'MIE') {
+            mie = list[i].codeDaySp;
+          } else
+            if (list[i].codeDaySp == 'JUE') {
+              jue = list[i].codeDaySp;
+            } else
+              if (list[i].codeDaySp == 'VIE') {
+                vie = list[i].codeDaySp;
+              }
+    }
+
+    if (lun != null) {
+      timetable = lun;
+    }
+    if (mar != null && timetable == null) {
+      timetable = mar;
+    } else
+      if (mar != null) {
+        timetable += ', ' + mar;
+      }
+    if (mie != null && timetable == null) {
+      timetable = mie;
+    } else
+      if (mie != null) {
+        timetable += ', ' + mie;
+      }
+    if (jue != null && timetable == null) {
+      timetable = jue;
+    } else
+      if (jue != null) {
+        timetable += ', ' + jue;
+      }
+    if (vie != null && timetable == null) {
+      timetable = vie;
+    } else
+      if (vie != null) {
+        timetable += ', ' + vie;
+      }
+
+    return timetable;
+  }
+
+  getClass() {
+
+    this.authService.class()
+      .then(data => {
+        this.configuration = data;
+        this.class = [];
+
+        for (let i = 0; i < this.configuration.length; i++) {
+
+          this.class.push({
+            idClass: this.configuration[i].idSubject,
+            name: this.configuration[i].subject,
+            timetable: this.transfomList(this.configuration[i].schoolSchedules),
+            professorName: this.configuration[i].legalNameTeacher,
+            img: 'http://18.224.225.240/' + this.configuration[i].photoSubject.substr('http://ec2-18-224-225-240.us-east-2.compute.amazonaws.com/'.length),
+            classDetail: this.configuration[i].scores,
+            photoProfessor: this.configuration[i].photoTeacher
+          })
+        }
+        setTimeout(() => this.alertService.dismiss(), 2000);
+      });
     
-     var timetable;
-     for(let i=0; i<list.length; i++){
-       if(timetable==null){
-        timetable= list[i].day+' '
-       }else{
-        timetable+= list[i].day+' '
-       }
-     }
-   return timetable;
   }
 
   detailPage(data) {

@@ -237,6 +237,7 @@ ion-item-option {
 
 .divTitle {
   margin-left: 1.4rem;
+  font-family: 'Muli';
 }
 
 
@@ -275,4 +276,18 @@ ion-item-option {
 
 .colorIcon {
   color: white;
+}
+
+.backgroundDiv{
+  background-color: rgb(228, 224, 224);
+  height: 0.1rem!important;
+}
+
+.sizeDiv {
+  margin-left: 1.5rem;
+  margin-right: 1.3rem;
+}
+
+ion-list{
+  background: #f8f9fa;
 }

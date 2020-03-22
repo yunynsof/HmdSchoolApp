@@ -1,28 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button color="light" (click)="iconStudent()"></ion-menu-button>
-    </ion-buttons>
-    <ion-title class="title-ios" color="light"><strong>Tareas</strong></ion-title>
-    <div class="right">
-      <input matInput [matDatepicker]="picker" readonly class="input">
-      <mat-datepicker-toggle matSuffix [for]="picker" class="colorIcon"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+    <div class="divHeader">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button color="light" (click)="iconStudent()"></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title-ios" color="light"><strong>Tareas</strong></ion-title>
+        <div class="right">
+          <input matInput [matDatepicker]="picker" readonly class="input">
+          <mat-datepicker-toggle matSuffix [for]="picker" class="colorIcon"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
+      </ion-toolbar>
     </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="">
-    <br><br><br>
+    <br>
     <ion-grid>
       <div>
         <ion-row>
           <ion-col>
-            <h3 class="divTitle"><strong>Semana 2 al 6 de Abril</strong></h3>
+            <h3 class="divTitle">Semana 2 al 6 de Abril</h3>
           </ion-col>
         </ion-row>
-        <br>       
+        <div class="sizeDiv">
+          <div class="backgroundDiv">
+            <ion-label></ion-label>
+          </div>
+        </div>
+        <br>
         <ion-row>
           <ion-col>
             <ion-list no-padding>
@@ -46,6 +55,7 @@
                   <p class="widthHalf">{{monday.date}}</p>
                 </ion-label>
               </ion-item>
+              <br>
               <ion-item button mode="ios" (click)="detailPage(tuesday)">
                 <div class="ProfileAvatr" slot="start">
                   <ion-avatar class="chatImage">
@@ -66,6 +76,7 @@
                   <p class="widthHalf">{{tuesday.date}}</p>
                 </ion-label>
               </ion-item>
+              <br>
               <ion-item button mode="ios" (click)="detailPage(wednesday)">
                 <div class="ProfileAvatr" slot="start">
                   <ion-avatar class="chatImage">
@@ -86,6 +97,7 @@
                   <p class="widthHalf">{{wednesday.date}}</p>
                 </ion-label>
               </ion-item>
+              <br>
               <ion-item button mode="ios" (click)="detailPage(thursday)">
                 <div class="ProfileAvatr" slot="start">
                   <ion-avatar class="chatImage">
@@ -106,6 +118,7 @@
                   <p class="widthHalf">{{thursday.date}}</p>
                 </ion-label>
               </ion-item>
+              <br>
               <ion-item button mode="ios" (click)="detailPage(friday)">
                 <div class="ProfileAvatr" slot="start">
                   <ion-avatar class="chatImage">

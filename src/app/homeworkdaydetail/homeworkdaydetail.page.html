@@ -1,17 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button color="light" defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title class="title-ios" color="light"><strong>{{date}}</strong></ion-title>
+    <div class="divHeader">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button color="light" defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="title-ios" color="light"><strong>{{date}}</strong></ion-title>
+      </ion-toolbar>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="">
-    <br><br><br>
+    <br>
     <ion-grid>
       <div>
+        <ion-row>
+          <ion-col>
+            <h3 class="divTitle">Asignaciones</h3>
+          </ion-col>
+        </ion-row>
+        <div class="sizeDiv">
+          <div class="backgroundDiv">
+            <ion-label></ion-label>
+          </div>
+        </div>
         <br>
         <ion-virtual-scroll [items]="assignments">
           <div *virtualItem="let item;">
@@ -19,20 +33,20 @@
               <div class="ProfileAvatr" slot="start">
                 <ion-avatar class="chatImage">
                   <div>
-                    <img  src="./assets/icon/homework.png">
+                    <img src="./assets/icon/homework.png">
                   </div>
                 </ion-avatar>
               </div>
               <ion-label>
-                <div class="withcount">
-                  <div class="nameAvatar">
-                    <h2>{{item.detail}}</h2>
 
-                  </div>
+                <div text-wrap>
+                  <h2>{{item.detail}}</h2>
                 </div>
+
                 <p class="widthHalf">{{item.class}}</p>
               </ion-label>
             </ion-item>
+            <br>
           </div>
         </ion-virtual-scroll>
         <br>

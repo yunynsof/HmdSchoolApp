@@ -22,6 +22,12 @@ ion-content{
   --background:#f8f9fa;
 }
 
+.divHeader{
+  background-color: #2e7cbc;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 :root[mode=ios] .muli,
 :root[mode=md] .muli{
   --ion-font-family:  'Muli'!important;

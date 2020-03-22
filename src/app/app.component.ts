@@ -50,18 +50,32 @@ export class AppComponent {
     });
   }
 
-  logout() {
+  /*logout() {
     localStorage.clear();
     this.authService.logout().then(() => {
     this.util.navigate('login', false);
     this.alertService.presentToast('Cerrando Sesión');
     })
-  }
+  }*/
 
-  /* logout() {
-     localStorage.clear();
-     this.navController.navigateRoot('/login');
-   }*/
+  logout() {
+    localStorage.removeItem('img');
+    localStorage.removeItem('name')
+    localStorage.removeItem('ACCESS_TOKEN');
+    localStorage.removeItem('TOKEN_TYPE')
+    localStorage.removeItem('user')
+
+    localStorage.removeItem('idEduPerCur')
+    localStorage.removeItem('idSchoCur');
+    localStorage.removeItem('idstudent')
+    localStorage.removeItem('userName')
+
+    localStorage.removeItem('debt');
+    localStorage.removeItem('idRegister')
+
+    this.navController.navigateRoot('/login');
+    this.alertService.presentToast('Cerrando Sesión');
+  }
 
   isLogin(path) {
 

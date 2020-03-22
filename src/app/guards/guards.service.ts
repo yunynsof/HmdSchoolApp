@@ -8,23 +8,32 @@
 */
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 import { UtilService } from '../services/util/util.service';
-import { AuthenticationService } from '../services/firestore/firebase-authentication.service';
+import { NavController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GuardsService implements CanActivate {
 
-  constructor(private authServ: AuthenticationService, private util: UtilService) { }
 
-  canActivate(route: ActivatedRouteSnapshot):any {
-    return this.authServ.checkAuth().then(user =>{
-      if(user){
-        return true
-      } else{
-        this.util.navigate('walkthrough',true);
-      }
-    })
+  constructor(
+    private util: UtilService,
+    private navController: NavController,
+    public auth: AuthService
+  ) { }
+
+  canActivate(): boolean {
+
+    if (this.auth.isAuthenticated()) {
+      return true;
+    }
+    else {
+
+      this.navController.navigateRoot(['login']);
+      return false;
+    }
   }
+
 }

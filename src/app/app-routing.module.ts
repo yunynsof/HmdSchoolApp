@@ -13,16 +13,16 @@ import { GuardsService } from './guards/guards.service';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: './auth/login/login.module#LoginPageModule'}, 
-  { path: 'home', loadChildren: './home/home.module#HomePageModule'},
-  { path: 'class', loadChildren: './class/class.module#ClassPageModule'},
-  { path: 'schedule', loadChildren: './schedule/schedule.module#SchedulePageModule'},
-  { path: 'homework', loadChildren: './homework/homework.module#HomeworkPageModule'},
-  { path: 'calendar', loadChildren: './calendar/calendar.module#CalendarPageModule'},
-  { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule'},
-  { path: 'support', loadChildren: './support/support.module#SupportPageModule'},
-  { path: 'classdetail', loadChildren: './classdetail/classdetail.module#ClassdetailPageModule'},
-  { path: 'homeworkdaydetail', loadChildren: './homeworkdaydetail/homeworkdaydetail.module#HomeworkdaydetailPageModule'},
-  { path: 'homeworkdesc', loadChildren: './homeworkdesc/homeworkdesc.module#HomeworkdescPageModule'},
+  { path: 'home', loadChildren: './home/home.module#HomePageModule', canActivate: [GuardsService] },
+  { path: 'class', loadChildren: './class/class.module#ClassPageModule', canActivate: [GuardsService] },
+  { path: 'schedule', loadChildren: './schedule/schedule.module#SchedulePageModule', canActivate: [GuardsService]  },
+  { path: 'homework', loadChildren: './homework/homework.module#HomeworkPageModule', canActivate: [GuardsService] },
+  { path: 'calendar', loadChildren: './calendar/calendar.module#CalendarPageModule', canActivate: [GuardsService]  },
+  { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule', canActivate: [GuardsService]  },
+  { path: 'support', loadChildren: './support/support.module#SupportPageModule', canActivate: [GuardsService]  },
+  { path: 'classdetail', loadChildren: './classdetail/classdetail.module#ClassdetailPageModule', canActivate: [GuardsService]  },
+  { path: 'homeworkdaydetail', loadChildren: './homeworkdaydetail/homeworkdaydetail.module#HomeworkdaydetailPageModule', canActivate: [GuardsService] },
+  { path: 'homeworkdesc', loadChildren: './homeworkdesc/homeworkdesc.module#HomeworkdescPageModule', canActivate: [GuardsService] },
   { path: 'switch', loadChildren: './components/switch/switch.module#SwitchPageModule'},
 
   { path: 'walkthrough', loadChildren: './pages/walkthrough/slides.module#SlidesPageModule'},
@@ -86,7 +86,8 @@ const routes: Routes = [
   { path: 'reorder', loadChildren: './pages/addons/reorder/reorder.module#ReorderPageModule' },
   { path: 'refresh', loadChildren: './pages/addons/refresh/refresh.module#RefreshPageModule' },
   { path: 'infinite', loadChildren: './pages/addons/infinite/infinite.module#InfinitePageModule' },
-
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login'}
 
 
 ];

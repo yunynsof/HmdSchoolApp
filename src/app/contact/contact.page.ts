@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { AuthService } from 'src/app/auth/auth.service';
+import { AlertService } from '../services/alert/alert.service';
 import { MouseEvent, MapsAPILoader } from '@agm/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ModalController, MenuController, AlertController, NavParams } from '@ionic/angular';
@@ -128,8 +129,6 @@ export class ContactPage implements OnInit {
     }
   ]
 
-
-
   constructor(
     private appComponent: AppComponent,
     private authService: AuthService,
@@ -137,11 +136,11 @@ export class ContactPage implements OnInit {
     private geolocation: Geolocation, private menuCtrl: MenuController,
     public alertController: AlertController,
     private activeRouter: ActivatedRoute,
+    private alertService: AlertService,
     public driverService: DriverStatusService
   ) {
 
     this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit,vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique.";
-    "Lomas de Toncontin";
     this.email = "info@colegio.com";
     this.hour = "7:00 a.m. - 3:00 p.m.";
     this.web = "http:// www.colegio.com";
@@ -153,6 +152,7 @@ export class ContactPage implements OnInit {
   }
 
   ngOnInit() {
+    this.alertService.present();
     this.getContact();
   }
 
@@ -165,12 +165,13 @@ export class ContactPage implements OnInit {
         this.telephone = this.categories.phone1;
         this.lat = this.categories.lat;
         this.lng = this.categories.lon;
+        setTimeout(() => this.alertService.dismiss(), 1000);
       });
+   
   }
 
-
   ionViewDidEnter() {
-    
+
     this.activeRouter.params.subscribe((data) => {
       if (data) {
         this.userCard = data.userCard ? data.userCard : this.driverService.userCard;
@@ -189,7 +190,6 @@ export class ContactPage implements OnInit {
     this.lat = $event.coords.lat;
     this.lng = $event.coords.lng;
   }
-
 
   getDirection() {
     console.log('directions');
@@ -219,7 +219,6 @@ export class ContactPage implements OnInit {
       console.log('data', data);
     });
   }
-
 
 
   iconStudent() {

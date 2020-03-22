@@ -1,8 +1,10 @@
 .sizeFontName {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  font-family: 'Muli';
 }
 .sizeFontDetail {
   font-size: 0.8rem;
+  margin-top: 0.5rem;
 }
 .sizeFontDesc {
   margin-left: 1.1rem;
@@ -135,7 +137,7 @@
 }
 
 .cardContent {
-  background-color: white;
+  background-color: #f8f9fa;
   margin-left: 0.8rem;
 }
 
@@ -338,4 +340,17 @@ ion-item-option {
 
 .divGeneral{
   margin-right: 1rem;
+}
+
+ion-item{
+  --background: #f8f9fa;
+}
+
+.backgroundDiv{
+  background-color: rgb(228, 224, 224);
+  height: 0.1rem!important;
+}
+
+.divDetail{
+  margin-left: 0.8rem;
 }

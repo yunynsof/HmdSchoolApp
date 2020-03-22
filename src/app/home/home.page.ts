@@ -1,6 +1,7 @@
-import { Component, Input  } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { Router,  } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
+import { AlertService } from '../services/alert/alert.service';
 const USER_NAME = 'userName';
 
 @Component({
@@ -10,12 +11,12 @@ const USER_NAME = 'userName';
 })
 export class HomePage {
 
+  principal;
   generalStudent = {
 
     user_name: null,
     student: null,
     studentId: null,
-    courseSection: null,
     grade: null,
     section: null,
     professor: null,
@@ -25,53 +26,71 @@ export class HomePage {
     class: []
 
   }
-
+  dayWeek = new Array("SUN", "MON", "TUE", "WED", "THE", "FRI", "SAT");
   selectSegment;
   userDetails;
   globalAverage;
 
   constructor(
-    private appComponent: AppComponent
+    private appComponent: AppComponent,
+    private alertService: AlertService,
+    private authService: AuthService
   ) {
-
-    this.generalStudent.user_name = localStorage.getItem(USER_NAME);
-    this.generalStudent.student = localStorage.getItem('name');
-    this.generalStudent.studentId = "0801-2018-00015";
-    this.generalStudent.courseSection = "1er Grado Sección A";
-    this.generalStudent.grade = "Primero";
-    this.generalStudent.section = "A";
-    this.generalStudent.professor = "Juan Hernandez";
-    this.generalStudent.professorDesc = "Catedratico Guia";
-    this.generalStudent.globalAverage = 80;
-    this.generalStudent.mailProfessor = "prueba@gamil.com";
-
-    this.generalStudent.class[0] = {
-      hour: "7:00 am",
-      class: "Español"
-    };
-    this.generalStudent.class[1] = {
-      hour: "8:00 am",
-      class: "Matematicas"
-    };
-    this.generalStudent.class[2] = {
-      hour: "9:00 am",
-      class: "Ciencias Naturales"
-    };
-    this.generalStudent.class[3] = {
-      hour: "10:00 am",
-      class: "Ingles"
-    };
-    this.generalStudent.class[4] = {
-      hour: "11:00 am",
-      class: "Informatica"
-    };
-
+    this.alertService.present();
+    this.getPrincipal();
     this.selectSegment = 'principal';
-    
+
   }
 
   ngOnInit() {
-    
+
+  }
+
+  getPrincipal() {
+    this.authService.principal()
+      .then(data => {
+
+        this.principal = data
+        this.generalStudent.user_name = localStorage.getItem(USER_NAME);
+        this.generalStudent.student = this.principal.studentName;
+        this.generalStudent.studentId = this.principal.identification;
+        this.generalStudent.grade = this.principal.grade;
+        this.generalStudent.section = this.principal.section;
+        this.generalStudent.professor = this.principal.guideTeacherName;
+        this.generalStudent.professorDesc = "Catedratico Guia";
+        this.generalStudent.globalAverage = Math.round(this.principal.academicIndex);
+        this.generalStudent.mailProfessor = "prueba@gamil.com";
+        localStorage.setItem('debt', this.principal.debt);
+
+        let a = 0;
+        for (let i = 0; i < this.principal.schoolSchedules.length; i++) {
+
+          if (this.principal.schoolSchedules[i].codeDayEng == this.dayWeek[new Date().getDay()]) {
+
+            this.submitDays(a);
+            a++;
+          } else if (this.dayWeek[new Date().getDay()] == 'SAT' ||
+            this.dayWeek[new Date().getDay()] == 'SUN') {
+
+            if (this.principal.schoolSchedules[i].codeDayEng == 'MON') {
+
+              this.submitDays(a);
+              a++;
+            }
+          }
+        }
+        localStorage.setItem('idRegister', this.principal.idRegister)
+        this.alertService.dismiss();
+      });
+  }
+
+  submitDays(i) {
+
+    this.generalStudent.class[i] = {
+      hour: this.principal.schoolSchedules[i].start + ' - ' + this.principal.schoolSchedules[i].end,
+      class: this.principal.schoolSchedules[i].subjectName
+    };
+
   }
 
   iconStudent() {

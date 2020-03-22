@@ -1,21 +1,66 @@
 .sizeFontName {
-  font-size: 1rem;
-  color: white;
-  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  color: rgb(10, 10, 10);
+  margin-left: 0.8rem;
 }
 .sizeFontTitle {
   font-size: 1rem;
 }
 .colorHeaderCard {
-  background-color: rgb(78, 78, 250);
+ // background-color: rgb(78, 78, 250);
   height: 3rem;
   font-size: 2rem;
-  border-radius: 0.3rem;
+  //border-radius: 0.3rem;
+ // border: 1px solid #080808;
+  //border-bottom: 1px solid #dfdcdc;
 }
+
+.fontSizeInput{
+  font-size: 1rem;
+}
+
+.ion-card{
+  border-left: 1px solid #dfdcdc;
+  border-right: 1px solid #dfdcdc;
+  border-bottom: 1px solid #dfdcdc;
+  border-radius: 0.6rem;
+  box-shadow: none !important;
+}
+
+.ion-cardSearch{
+  margin-left: 15%;
+  margin-right: 15%;
+  
+}
+
+img {
+    
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  width: 30%;
+  height: 30%;
+}
+
+.ion-title {
+  color: rgb(23, 117, 194);
+  font-size: 20px;
+}
+
+.ion-itemSearch{
+  --background: #f8f9fa;
+}
+
+.ion-item{
+  --background: #f8f9fa;
+  border-top: 1px solid #dfdcdc;
+}
+
 .colorContentCard {
   background-color: #f8f9fa;
-  margin-left: 0.6rem;
-  margin-right: 0.6rem;
+  margin-left: 1.8rem;
+  margin-right: 1rem;
+  font-size: 0.8rem;
 }
 
 .bg-image {

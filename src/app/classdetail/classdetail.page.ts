@@ -19,26 +19,46 @@ export class ClassdetailPage implements OnInit {
   userDetails;
   professor;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router
+    ) {
     this.route.queryParams.subscribe(params => {
 
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state;
+
         this.title = this.data.name;
         this.professor = this.data.professorName;
+        this.partialNotes(this.data.classDetail)
       }
     });
+
     this.userDetails = { profileUrl: "./assets/icon/avatar.png" };
     this.selectSegment = 'profile';
   }
 
   ngOnInit() {
-    this.firstPartialNote = 80;
-    this.secondPartialNote = 50;
-    this.thirdPartialNote = 100;
-    this.fourthPartialNote = 2;
-    this.promNote = (this.firstPartialNote + this.secondPartialNote + this.thirdPartialNote + this.fourthPartialNote) / 4;
 
+  }
+
+  partialNotes(detail) {
+
+    for (let i = 0; i < detail.length; i++) {
+      if (detail[i].codeParcial == 'I') {
+        this.firstPartialNote = detail[i].score;
+      } else
+        if (detail[i].codeParcial == 'II') {
+          this.secondPartialNote = detail[i].score;
+        } else
+          if (detail[i].codeParcial == 'III') {
+            this.thirdPartialNote = detail[i].score;
+          } else
+            if (detail[i].codeParcial == 'IV') {
+              this.fourthPartialNote = detail[i].score;
+            }
+    }
+    this.promNote = (this.firstPartialNote + this.secondPartialNote + this.thirdPartialNote + this.fourthPartialNote) / 4;
   }
 
 }

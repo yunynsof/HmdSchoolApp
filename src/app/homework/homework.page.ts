@@ -56,13 +56,13 @@ export class HomeworkPage implements OnInit {
         {
           class: "Español",
           date: "15 de mayo del 2020",
-          detail: "Leer libro de lectura",
+          detail: "Presentacion e informe de Proyecto Final",
           description: "Realizar lo acordado en clase para esta asignacion, revisar apunte de la semana 2"
         },
         {
           class: "Matematicas",
           date: "15 de mayo del 2020",
-          detail: "Realizar guia 2",
+          detail: "Presentacion e informe de Proyecto Final",
           description: "Realizar lo acordado en clase para esta asignacion, revisar apunte de la semana 2"
         }
       ]
@@ -74,13 +74,13 @@ export class HomeworkPage implements OnInit {
         {
           class: "Ciencias Naturales",
           date: "15 de mayo del 2020",
-          detail: "Leer libro de lectura",
+          detail: "Presentacion e informe de Proyecto Final",
           description: "Realizar lo acordado en clase para esta asignacion, revisar apunte de la semana 2"
         },
         {
           class: "Civica",
           date: "15 de mayo del 2020",
-          detail: "Realizar guia 2",
+          detail: "Presentacion e informe de Proyecto Final",
           description: "Realizar lo acordado en clase para esta asignacion, revisar apunte de la semana 2"
         }
       ]
@@ -92,13 +92,13 @@ export class HomeworkPage implements OnInit {
         {
           class: "Español",
           date: "15 de mayo del 2020",
-          detail: "Leer libro de lectura",
+          detail: "Presentacion e informe de Proyecto Final",
           description: "Realizar lo acordado en clase para esta asignacion, revisar apunte de la semana 2"
         },
         {
           class: "Matematicas",
           date: "15 de mayo del 2020",
-          detail: "Realizar guia 2",
+          detail: "Presentacion e informe de Proyecto Final",
           description: "Realizar lo acordado en clase para esta asignacion, revisar apunte de la semana 2"
         }
       ]
@@ -110,13 +110,13 @@ export class HomeworkPage implements OnInit {
         {
           class: "Español",
           date: "15 de mayo del 2020",
-          detail: "Leer libro de lectura",
+          detail: "Presentacion e informe de Proyecto Final",
           description: "Realizar lo acordado en clase para esta asignacion, revisar apunte de la semana 2"
         },
         {
           class: "Matematicas",
           date: "15 de mayo del 2020",
-          detail: "Realizar guia 2",
+          detail: "Presentacion e informe de Proyecto Final",
           description: "Realizar lo acordado en clase para esta asignacion, revisar apunte de la semana 2"
         }
       ]
@@ -128,13 +128,13 @@ export class HomeworkPage implements OnInit {
         {
           class: "Ingles",
           date: "15 de mayo del 2020",
-          detail: "Leer libro de lectura",
+          detail: "Presentacion e informe de Proyecto Final",
           description: "Realizar lo acordado en clase para esta asignacion, revisar apunte de la semana 2"
         },
         {
           class: "Matematicas",
           date: "15 de mayo del 2020",
-          detail: "Realizar guia 2",
+          detail: "Presentacion e informe de Proyecto Final",
           description: "Realizar lo acordado en clase para esta asignacion, revisar apunte de la semana 2"
         },
         {
@@ -164,13 +164,13 @@ export class HomeworkPage implements OnInit {
         {
           class: "Español",
           date: "15 de mayo del 2020",
-          detail: "Leer libro de lectura",
+          detail: "Presentacion e informe de Proyecto Final",
           description: "Realizar lo acordado en clase para esta asignacion, revisar apunte de la semana 2"
         },
         {
           class: "Matematicas",
           date: "15 de mayo del 2020",
-          detail: "Realizar guia 2",
+          detail: "Presentacion e informe de Proyecto Final",
           description: "Realizar lo acordado en clase para esta asignacion, revisar apunte de la semana 2"
         }
       ]

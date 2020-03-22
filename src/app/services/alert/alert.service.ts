@@ -34,7 +34,7 @@ export class AlertService {
       await alert.present();
     } else if (error.status == 0) {
       const alert = await this.alertController.create({
-        header: 'Error de Conexión',
+        header: 'Error de Conexión a Internet',
         message: 'Status: ' + error.status + ' Error:' + error.statusText,
         mode: 'ios',
         buttons: ['OK']
@@ -64,12 +64,18 @@ export class AlertService {
   async errorAlert(error) {
 
     const alert = await this.alertController.create({
-      header: 'Error de Guardado',
+      header: 'Lo sentimos',
       subHeader: 'Verifique',
       mode: 'ios',
-      message: error
+      message: error,
+      buttons: [{
+        text: 'Ok',
+        handler: () => {
+          localStorage.clear();
+        }
+      }]
     });
-
+  
     await alert.present();
   }
 
@@ -93,6 +99,25 @@ export class AlertService {
     return await this.loadingController.create({
       spinner: "crescent",
       message: 'Por favor espere...',
+      translucent: true,
+      mode: 'ios',
+      cssClass: 'custom-class custom-loading'
+
+    }).then(a => {
+      a.present().then(() => {
+        if (!this.isLoading) {
+          a.dismiss();
+        }
+      });
+    });
+  }
+
+  async presentDebt() {
+
+    this.isLoading = true;
+    return await this.loadingController.create({
+      spinner: "circles",
+      message: 'Comprobando estado de cuenta',
       translucent: true,
       mode: 'ios',
       cssClass: 'custom-class custom-loading'
