@@ -63,7 +63,7 @@ export class AppComponent {
     localStorage.removeItem('name')
     localStorage.removeItem('ACCESS_TOKEN');
     localStorage.removeItem('TOKEN_TYPE')
-    localStorage.removeItem('user')
+    //localStorage.removeItem('user')
 
     localStorage.removeItem('idEduPerCur')
     localStorage.removeItem('idSchoCur');

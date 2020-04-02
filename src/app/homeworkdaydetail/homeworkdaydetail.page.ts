@@ -29,8 +29,8 @@ export class HomeworkdaydetailPage implements OnInit {
           this.assignments = this.cant;
         }
       }
+      setTimeout(() => this.alertService.dismiss(), 1000);
     });
-    this.alertService.dismiss();
   }
 
   ngOnInit() {

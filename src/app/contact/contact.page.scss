@@ -7,6 +7,17 @@
   color: rgb(43, 158, 235);
 }
 
+.flexcontainer {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+ }
+
 .colorInfo {
   font-size: 0.9rem;
   color: rgb(43, 158, 235);

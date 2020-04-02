@@ -11,7 +11,6 @@ import { UtilService } from '../../services/util/util.service';
 })
 export class SwitchPage implements OnInit {
 
-
   tutors: any;
   students = [];
   lengthBig;
@@ -27,9 +26,7 @@ export class SwitchPage implements OnInit {
     private authService: AuthService,
     private util: UtilService,
   ) {
-
     this.getStudent();
-
   }
 
   ngOnInit() {
@@ -52,7 +49,7 @@ export class SwitchPage implements OnInit {
         this.tutors = data;
         this.students = this.tutors.students;
 
-        localStorage.setItem('userName', this.tutors.legalName);
+        localStorage.setItem('userName', this.tutors.legalName.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()));
         this.lengthBig = this.lengthStudentBig(this.students.length);
         this.lengthSmall = this.lengthStudentSmall(this.students.length);
         this.userDetails = { profileUrl: localStorage.getItem('img') };
@@ -61,7 +58,7 @@ export class SwitchPage implements OnInit {
 
           this.items.push({
             img: './assets/icon/user' + (2) + '.png',
-            name: this.students[i].legalName,
+            name: this.students[i].legalName.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()),
             studentId: this.students[i].identification,
             idstudent: this.students[i].id
           });
@@ -84,7 +81,7 @@ export class SwitchPage implements OnInit {
 
   comprobationDebt() {
     this.navController.navigateRoot('/home');
-    this.alertService.dismiss()
+    //this.alertService.dismiss()
   }
 
   logout() {
@@ -92,7 +89,7 @@ export class SwitchPage implements OnInit {
     localStorage.removeItem('name')
     localStorage.removeItem('ACCESS_TOKEN');
     localStorage.removeItem('TOKEN_TYPE')
-    localStorage.removeItem('user')
+    //localStorage.removeItem('user')
 
     localStorage.removeItem('idEduPerCur')
     localStorage.removeItem('idSchoCur');

@@ -24,7 +24,10 @@ export class ContactPage implements OnInit {
   email;
   hour;
   web;
-
+  facebook;
+  youtube;
+  instagram;
+  twitter;
 
   public zoom: number = 14;
   public lat: number = 14.089654;
@@ -141,11 +144,7 @@ export class ContactPage implements OnInit {
   ) {
 
     this.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit,vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique.";
-    this.email = "info@colegio.com";
-    this.hour = "7:00 a.m. - 3:00 p.m.";
-    this.web = "http:// www.colegio.com";
-
-
+    
     this.driveStatus = driverService.driverStatus;
     this.userCard = driverService.userCard;
     this.menuCtrl.enable(true);
@@ -162,9 +161,16 @@ export class ContactPage implements OnInit {
         this.categories = data;
         this.nameCollege = this.categories.name;
         this.address = this.categories.address;
-        this.telephone = this.categories.phone1;
+        this.telephone = this.categories.phone1+' '+this.categories.phone2;
         this.lat = this.categories.lat;
         this.lng = this.categories.lon;
+        this.email = this.categories.email;
+        this.hour = this.categories.officeHours;
+        this.web = this.categories.web;
+        this.facebook = this.categories.facebook;
+        this.instagram = this.categories.instagram;
+        this.youtube = this.categories.youtube;
+        this.twitter = this.categories.twitter;
         setTimeout(() => this.alertService.dismiss(), 1000);
       });
    

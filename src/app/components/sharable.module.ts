@@ -29,6 +29,7 @@ import { Slider4Component } from './slider4/slider4.component';
 import { Slider5Component } from './slider5/slider5.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PrincipalscreenComponent } from'./principalscreen/principalscreen.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
  
 @NgModule({
   declarations: [Slider1Component,RangeComponent,DatetimeComponent,RippleComponent,AlertComponent,ActionsheetComponent,Slider2Component,TindericonsComponent,Slider3Component,InstagramComponent,PaymentCardsComponent,MyProfileComponent,MyAddressComponent,Slider4Component,Slider5Component,ProfileComponent,PrincipalscreenComponent],
@@ -37,6 +38,40 @@ import { PrincipalscreenComponent } from'./principalscreen/principalscreen.compo
     FormsModule,
     IonicModule,
     DataTablesModule,
+    NgCircleProgressModule.forRoot({
+   
+      backgroundStrokeWidth: 4,
+      backgroundPadding: 15,
+      radius: 45,
+      space: -13,
+      toFixed: 1,
+      maxPercent: 100,
+      unitsFontSize: '19',
+      unitsFontWeight: '700',
+      outerStrokeGradient: true,
+      outerStrokeWidth: 12,
+      outerStrokeColor: "#4882c2",
+      outerStrokeGradientStopColor: "#57fb60",
+      innerStrokeColor: "#e7e8ea",
+      innerStrokeWidth: 14,
+      titleFontSize: "19",
+      titleFontWeight: "500",
+      subtitleColor: "#040404",
+      subtitleFontSize: "13",
+      subtitleFontWeight: "700",
+      imageHeight: 199,
+      imageWidth:224,
+      animateTitle: true,
+      animationDuration: 2500,
+      showTitle: true,
+      showSubtitle: false,
+      showUnits: true,
+      showBackground: false,
+
+      backgroundGradient: true,
+      backgroundOpacity:1,
+ 
+    }),
   ],
   exports:[Slider1Component,RangeComponent,DatetimeComponent,RippleComponent,AlertComponent,ActionsheetComponent,Slider2Component,TindericonsComponent,Slider3Component,InstagramComponent,PaymentCardsComponent,MyProfileComponent,MyAddressComponent,Slider4Component,Slider5Component,ProfileComponent,PrincipalscreenComponent]
 })

@@ -22,7 +22,6 @@
           [editable]="false">
         </agm-circle>
       </agm-map>
-
     </div>
   </div>
   <div class="">
@@ -98,10 +97,24 @@
                   </ion-row>
                 </ion-col>
                 <ion-col>
-                  <ion-label class="sizeFontDesc">{{web}}</ion-label>
+                  <a class="sizeFontDesc" href="{{web}}">{{web}}</a>
                 </ion-col>
               </ion-row>
             </ion-col>
+          </ion-row>
+          <ion-row class="flexcontainer">
+            <ion-fab-button size="small" color="light" href="{{facebook}}">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button size="small" color="light" href="{{youtube}}">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button size="small" color="light" href="{{instagram}}">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button size="small" color="light" href="{{twitter}}">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </ion-fab-button>
           </ion-row>
         </div>
       </div>

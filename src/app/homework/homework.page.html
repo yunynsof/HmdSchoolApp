@@ -7,7 +7,7 @@
         </ion-buttons>
         <ion-title class="title-ios" color="light"><strong>Tareas</strong></ion-title>
         <div class="right">
-          <input matInput [matDatepicker]="picker" readonly class="input">
+          <input matInput [matDatepicker]="picker" name="mydate" readonly class="input" [(ngModel)]="mydate" (dateInput)="obtainHomework()">
           <mat-datepicker-toggle matSuffix [for]="picker" class="colorIcon"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </div>
@@ -23,7 +23,7 @@
       <div>
         <ion-row>
           <ion-col>
-            <h3 class="divTitle">Semana 2 al 6 de Abril</h3>
+            <h3 class="divTitle">{{tittle}}</h3>
           </ion-col>
         </ion-row>
         <div class="sizeDiv">
@@ -31,118 +31,36 @@
             <ion-label></ion-label>
           </div>
         </div>
-        <br>
-        <ion-row>
-          <ion-col>
-            <ion-list no-padding>
-              <ion-item button mode="ios" (click)="detailPage(monday)">
-                <div class="ProfileAvatr" slot="start">
-                  <ion-avatar class="chatImage">
-                    <div>
-                      <img class="imgDoc" src="./assets/icon/lunes.png">
-                    </div>
-                  </ion-avatar>
-                </div>
-                <ion-label>
-                  <div class="withcount">
-                    <div class="nameAvatar">
-                      <h2>{{dayQuantity}}</h2>
-                      <div class="cantAssigm">
-                        <ion-label class="sizeFontDesc">{{monday.assignment.length}}</ion-label>
+        <br> <br>
+        <div *ngFor="let item of homework">
+          <ion-row>
+            <ion-col>
+              <ion-list no-padding>
+                <ion-item button mode="ios" (click)="detailPage(item)">
+                  <div class="ProfileAvatr" slot="start">
+                    <ion-avatar class="chatImage">
+                      <div>
+                        <img class="imgDoc" src="{{item.imgSrc}}">
+                      </div>
+                    </ion-avatar>
+                  </div>
+                  <ion-label>
+                    <div class="withcount">
+                      <div class="nameAvatar">
+                        <h2>{{dayQuantity}}</h2>
+                        <div class="cantAssigm">
+                          <ion-label class="sizeFontDesc">{{item.assignment.length}}</ion-label>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <p class="widthHalf">{{monday.date}}</p>
-                </ion-label>
-              </ion-item>
-              <br>
-              <ion-item button mode="ios" (click)="detailPage(tuesday)">
-                <div class="ProfileAvatr" slot="start">
-                  <ion-avatar class="chatImage">
-                    <div>
-                      <img class="imgDoc" src="./assets/icon/martes.png">
-                    </div>
-                  </ion-avatar>
-                </div>
-                <ion-label>
-                  <div class="withcount">
-                    <div class="nameAvatar">
-                      <h2>{{dayQuantity}}</h2>
-                      <div class="cantAssigm">
-                        <ion-label class="sizeFontDesc">{{tuesday.assignment.length}}</ion-label>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="widthHalf">{{tuesday.date}}</p>
-                </ion-label>
-              </ion-item>
-              <br>
-              <ion-item button mode="ios" (click)="detailPage(wednesday)">
-                <div class="ProfileAvatr" slot="start">
-                  <ion-avatar class="chatImage">
-                    <div>
-                      <img class="imgDoc" src="./assets/icon/miercoles.png">
-                    </div>
-                  </ion-avatar>
-                </div>
-                <ion-label>
-                  <div class="withcount">
-                    <div class="nameAvatar">
-                      <h2>{{dayQuantity}}</h2>
-                      <div class="cantAssigm">
-                        <ion-label class="sizeFontDesc">{{wednesday.assignment.length}}</ion-label>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="widthHalf">{{wednesday.date}}</p>
-                </ion-label>
-              </ion-item>
-              <br>
-              <ion-item button mode="ios" (click)="detailPage(thursday)">
-                <div class="ProfileAvatr" slot="start">
-                  <ion-avatar class="chatImage">
-                    <div>
-                      <img class="imgDoc" src="./assets/icon/jueves.png">
-                    </div>
-                  </ion-avatar>
-                </div>
-                <ion-label>
-                  <div class="withcount">
-                    <div class="nameAvatar">
-                      <h2>{{dayQuantity}}</h2>
-                      <div class="cantAssigm">
-                        <ion-label class="sizeFontDesc">{{thursday.assignment.length}}</ion-label>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="widthHalf">{{thursday.date}}</p>
-                </ion-label>
-              </ion-item>
-              <br>
-              <ion-item button mode="ios" (click)="detailPage(friday)">
-                <div class="ProfileAvatr" slot="start">
-                  <ion-avatar class="chatImage">
-                    <div>
-                      <img class="imgDoc" src="./assets/icon/viernes.png">
-                    </div>
-                  </ion-avatar>
-                </div>
-                <ion-label>
-                  <div class="withcount">
-                    <div class="nameAvatar">
-                      <h2>{{dayQuantity}}</h2>
-                      <div class="cantAssigm">
-                        <ion-label class="sizeFontDesc">{{friday.assignment.length}}</ion-label>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="widthHalf">{{friday.date}}</p>
-                </ion-label>
-              </ion-item>
-            </ion-list>
-          </ion-col>
-        </ion-row>
-        <br>
+                    <p class="widthHalf">{{item.date}}</p>
+                  </ion-label>
+                </ion-item>
+                <br>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </div>
       </div>
     </ion-grid>
   </div>

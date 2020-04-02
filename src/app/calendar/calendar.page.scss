@@ -10,14 +10,18 @@
   font-size: 0.7rem;
   color: rgb(5, 5, 5);
 }
+.sizeFontEnd {
+  font-size: 0.7rem;
+  color: rgb(5, 5, 5);
+}
 
 .sizeFontTitle {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: rgb(71, 71, 68);
 }
 
 .sizeFontCollege {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: bold;
 }
 ion-card {
@@ -364,4 +368,10 @@ ion-item-option {
 
 .colorIcon {
   color: white;
+}
+
+.imgDoc{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 150px;
 }

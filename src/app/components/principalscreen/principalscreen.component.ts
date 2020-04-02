@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { DataTableDirective } from 'angular-datatables';
-const USER_NAME = '';
+
 
 @Component({
   selector: 'app-principalscreen',

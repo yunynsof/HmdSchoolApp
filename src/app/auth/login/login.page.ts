@@ -15,13 +15,14 @@ export class LoginPage implements OnInit {
 
   configuration;
   tutors;
+  username;
 
   constructor(
     private navController: NavController,
     private authService: AuthService,
     private alertService: AlertService,
   ) {
-
+     this.username = localStorage.getItem('user');
   }
 
   ngOnInit() {
@@ -42,9 +43,6 @@ export class LoginPage implements OnInit {
       },
       () => {
         this.getStudent();
-        setTimeout(() => this.getConfiguration(), 2000);
-        this.navController.navigateRoot('/switch');
-
       }
     );
 
@@ -57,10 +55,11 @@ export class LoginPage implements OnInit {
         this.configuration = data;
         localStorage.setItem('idEduPerCur', this.configuration.idEducationalPeriodCurrent);
         localStorage.setItem('idSchoCur', this.configuration.idSchoolCurrent);
+
+        let username = localStorage.getItem('userName');
+        setTimeout(() => this.alertService.presentToast('Bienvenido ' + username + ' a la aplicacion HMDSchool'), 1000);
+        this.navController.navigateRoot('/switch');
       });
-    let username = localStorage.getItem('userName');
-    console.log(username)
-    this.alertService.presentToast('Bienvenido ' + username + ' a la aplicacion HMDSchool');
 
   }
 
@@ -69,9 +68,9 @@ export class LoginPage implements OnInit {
     this.authService.tutors(localStorage.getItem('user'))
       .then(data => {
         this.tutors = data;
-        localStorage.setItem('userName', this.tutors.legalName);
+        localStorage.setItem('userName', this.tutors.legalName.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()));
+        this.getConfiguration();
       });
   }
-
 
 }

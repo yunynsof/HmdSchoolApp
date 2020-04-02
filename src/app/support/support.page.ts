@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AppComponent} from 'src/app/app.component';
+import { AppComponent } from 'src/app/app.component';
+import { AuthService } from 'src/app/auth/auth.service';
+import { AlertService } from '../services/alert/alert.service';
 
 @Component({
   selector: 'app-support',
@@ -8,26 +10,37 @@ import {AppComponent} from 'src/app/app.component';
 })
 export class SupportPage implements OnInit {
 
-  public items: any = [];
+  items: any = [];
+  dataObtain;
 
-  constructor( private appComponent:AppComponent) {
-    this.items = [
-      { question: " No puedo ver las notas de mi hijo",
-        detail: "Si usted no puede ver las notas en la aplicación es debido a que el servidor de HMD SCHOOLS esta apagado lo recomendable es que se comunique con el administrador.",
-        expanded: false },
-      { question: " Como hago para cambiar a otro perfil",
-        detail: "Si usted no puede ver las notas en la aplicación es debido a que el servidor de HMD SCHOOLS esta apagado lo recomendable es que se comunique con el administrador.",
-        expanded: false },
-      { question: " Como contacto a la maestra guia",
-        detail: "Si usted no puede ver las notas en la aplicación es debido a que el servidor de HMD SCHOOLS esta apagado lo recomendable es que se comunique con el administrador.",
-        expanded: false },
-      { question: " Como actualizo la información de mi hijo",
-        detail: "Si usted no puede ver las notas en la aplicación es debido a que el servidor de HMD SCHOOLS esta apagado lo recomendable es que se comunique con el administrador.",
-        expanded: false },
-      { question: " No me llegan las notificaciones",
-        detail: "Si usted no puede ver las notas en la aplicación es debido a que el servidor de HMD SCHOOLS esta apagado lo recomendable es que se comunique con el administrador.",
-        expanded: false }
-    ];
+  constructor(
+    private appComponent: AppComponent,
+    private alertService: AlertService,
+    private authService: AuthService
+  ) {
+    this.alertService.present();
+    this.authService.support().then(data => {
+
+      this.dataObtain = data;
+      if (this.dataObtain != null) {
+        this.items = [];
+
+        for (let i = 0; i < this.dataObtain.length; i++) {
+
+          this.items.push({
+            question: this.dataObtain[i].question,
+            answers: this.dataObtain[i].answers,
+            expanded: false
+          });
+        }
+        this.alertService.dismiss();
+      }else setTimeout(() => this.errorSupport(), 1000);
+    });
+  }
+
+  errorSupport() {
+    this.alertService.dismiss();
+    this.alertService.errorSupport('Verifique otra fecha en la agenda');
   }
 
   expandItem(item): void {
@@ -48,7 +61,7 @@ export class SupportPage implements OnInit {
   ngOnInit() {
   }
 
-  iconStudent(){
+  iconStudent() {
     this.appComponent.iconStudent();
   }
 

@@ -36,9 +36,9 @@ export class HomePage {
     private alertService: AlertService,
     private authService: AuthService
   ) {
+    this.alertService.dismiss()
     this.alertService.present();
     this.getPrincipal();
-    this.selectSegment = 'principal';
 
   }
 
@@ -52,13 +52,13 @@ export class HomePage {
 
         this.principal = data
         this.generalStudent.user_name = localStorage.getItem(USER_NAME);
-        this.generalStudent.student = this.principal.studentName;
+        this.generalStudent.student = this.principal.studentName.toLowerCase().replace(/\b\w/g, l => l.toUpperCase());
         this.generalStudent.studentId = this.principal.identification;
         this.generalStudent.grade = this.principal.grade;
         this.generalStudent.section = this.principal.section;
         this.generalStudent.professor = this.principal.guideTeacherName;
         this.generalStudent.professorDesc = "Catedratico Guia";
-        this.generalStudent.globalAverage = Math.round(this.principal.academicIndex);
+        this.generalStudent.globalAverage = this.principal.academicIndex.toFixed(2);
         this.generalStudent.mailProfessor = "prueba@gamil.com";
         localStorage.setItem('debt', this.principal.debt);
 
@@ -81,6 +81,7 @@ export class HomePage {
         }
         localStorage.setItem('idRegister', this.principal.idRegister)
         this.alertService.dismiss();
+        this.selectSegment = 'principal';
       });
   }
 
@@ -96,5 +97,5 @@ export class HomePage {
   iconStudent() {
     this.appComponent.iconStudent();
   }
-
+  
 }

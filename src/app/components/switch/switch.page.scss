@@ -9,6 +9,11 @@
 .card {
   margin-left: 5%;
 }
+
+.margin {
+  margin-left: 9%;
+}
+
 .price {
   font-size: 16px;
   float: left;
@@ -55,6 +60,9 @@
   .card {
     margin-left: 25%;
   }
+  .margin {
+    margin-left: 27%;
+  }
 }
 
 .contentBig {
@@ -70,10 +78,6 @@
   background-position: center;
   padding: 55px 15px 75px 15px;
   overflow: scroll;
-}
-
-.margin {
-  margin-left: 5%;
 }
 
 .userSection {

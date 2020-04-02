@@ -49,6 +49,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -65,6 +66,37 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
+    }),
+    NgCircleProgressModule.forRoot({
+   
+      backgroundStrokeWidth: 4,
+      backgroundPadding: -37,
+      radius: 35,
+      space: -12,
+      toFixed: 1,
+      maxPercent: 100,
+      unitsFontSize: '17',
+      unitsFontWeight: '300',
+      outerStrokeGradient: true,
+      outerStrokeWidth: 12,
+      outerStrokeColor: "#4882c2",
+      outerStrokeGradientStopColor: "#53a9ff",
+      innerStrokeColor: "#e7e8ea",
+      innerStrokeWidth: 13,
+      title: "UI",
+      titleFontSize: "15",
+      titleFontWeight: "400",
+      subtitleColor: "#020202",
+      subtitleFontSize: "17",
+      subtitleFontWeight: "300",
+      imageHeight: 75,
+      imageWidth:83,
+      animateTitle: true,
+      animationDuration: 2500,
+      showTitle: true,
+      showUnits: true,
+      showBackground: true
+ 
     }),
     IonicModule.forRoot(),
     AgmCoreModule.forRoot({

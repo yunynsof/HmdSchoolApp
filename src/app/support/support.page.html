@@ -25,7 +25,7 @@
       <br>
       <ion-row>
         <ion-col class="ion-text-center">
-         <ion-title class="ion-title">¿Cómo podemos ayudarte?</ion-title>
+          <ion-title class="ion-title">¿Cómo podemos ayudarte?</ion-title>
         </ion-col>
       </ion-row>
       <br>
@@ -42,11 +42,10 @@
                   </ion-icon>
                 </ion-item>
               </div>
-              <div class="colorContentCard">
-                <app-expandable expandHeight="150px" [expanded]="item.expanded">
-                  <br>
+              <div class="colorContentCard" *ngFor="let answer of item.answers">
+                <app-expandable expandHeight="100px" [expanded]="item.expanded">
                   <p>
-                    {{item.detail}}
+                    {{answer.answer}}
                   </p>
                 </app-expandable>
               </div>

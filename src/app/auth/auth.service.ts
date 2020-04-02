@@ -18,7 +18,7 @@ export class AuthService {
   URL_SERVER: string = 'http://18.224.225.240/hmd-schoolar-oit-backend';
   authSubject = new BehaviorSubject(false);
   token: any;
-  
+
   constructor(
     private httpClient: HttpClient,
     private alertService: AlertService
@@ -93,6 +93,8 @@ export class AuthService {
         resolve(data);
       }, err => {
         console.log(err);
+        this.alertService.dismiss();
+        this.alertService.errorConnection(err);
       });
     });
   }
@@ -111,6 +113,8 @@ export class AuthService {
         resolve(data);
       }, err => {
         console.log(err);
+        this.alertService.dismiss();
+        this.alertService.errorConnection(err);
       });
     });
   }
@@ -129,9 +133,91 @@ export class AuthService {
         resolve(data);
       }, err => {
         console.log(err);
+        this.alertService.dismiss();
+        this.alertService.errorConnection(err);
       });
     });
   }
+
+  homework(date) {
+    const headers = new HttpHeaders({
+      'Authorization': localStorage.getItem('TOKEN_TYPE') + ' ' + localStorage.getItem('ACCESS_TOKEN'),
+    });
+
+    let homework = {
+      idRegister: localStorage.getItem('idRegister'),
+      date: date
+    };
+
+    return new Promise(resolve => {
+      this.httpClient.post(`${this.URL_SERVER}/api/planning/homework_day/v1/get`, homework, { headers }).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+        this.alertService.dismiss();
+        this.alertService.errorConnection(err);
+      });
+    });
+  }
+
+  calendar(date) {
+    const headers = new HttpHeaders({
+      'Authorization': localStorage.getItem('TOKEN_TYPE') + ' ' + localStorage.getItem('ACCESS_TOKEN'),
+    });
+
+    let calendar = {
+      idRegister: localStorage.getItem('idRegister'),
+      date: date
+    };
+
+    return new Promise(resolve => {
+      this.httpClient.post(`${this.URL_SERVER}/api/calendar/general_calendar/v1/get`, calendar, { headers }).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+        this.alertService.dismiss();
+        this.alertService.errorConnection(err);
+      });
+    });
+  }
+
+  schedule(date) {
+    const headers = new HttpHeaders({
+      'Authorization': localStorage.getItem('TOKEN_TYPE') + ' ' + localStorage.getItem('ACCESS_TOKEN'),
+    });
+
+    let schedule = {
+      idRegister: localStorage.getItem('idRegister'),
+      date: date
+    };
+
+    return new Promise(resolve => {
+      this.httpClient.post(`${this.URL_SERVER}/api/planning/general_agenda/v1/get`, schedule, { headers }).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+        this.alertService.dismiss();
+        this.alertService.errorConnection(err);
+      });
+    });
+  }
+
+  support() {
+    const headers = new HttpHeaders({
+      'Authorization': localStorage.getItem('TOKEN_TYPE') + ' ' + localStorage.getItem('ACCESS_TOKEN'),
+    });
+
+    return new Promise(resolve => {
+      this.httpClient.get(`${this.URL_SERVER}/api/conf/general_questions/v1/get/APP_MOV_PF`, { headers }).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+        this.alertService.dismiss();
+        this.alertService.errorConnection(err);
+      });
+    });
+  }
+
 
   isLoggedIn() {
     return this.authSubject.asObservable();
@@ -162,7 +248,6 @@ export class AuthService {
     if (date === undefined) return false;
     return !(date.valueOf() > new Date().valueOf());
   }
-
 
   isAuth() {
     return localStorage.getItem(TOKEN_KEY);

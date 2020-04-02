@@ -9,15 +9,12 @@ export class ProfileComponent implements OnInit {
   @Input() generalStudent;
 
   userDetails;
- 
 
-  constructor() { 
-   
+  constructor() {
 
     this.userDetails = { profileUrl: localStorage.getItem('img') };
-  
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }
