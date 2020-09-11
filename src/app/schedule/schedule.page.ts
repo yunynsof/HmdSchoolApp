@@ -48,6 +48,7 @@ export class SchedulePage implements OnInit {
   day;
   month;
   year;
+  flag;
 
   constructor(
     private router: Router,
@@ -69,7 +70,8 @@ export class SchedulePage implements OnInit {
 
       this.dataObtain = data;
       if (this.dataObtain != null) {
-
+   
+        this.flag = 0;
         this.schedule = [];
         let b = 0;
         for (let i = 0; i < this.dataObtain.length; i++) {
@@ -83,7 +85,7 @@ export class SchedulePage implements OnInit {
                 date: this.dataObtain[i].day + ' ' + numberDayMonth + ' de ' + this.dataObtain[i].month + ' ' + hour,
                 descriptionItem: this.dataObtain[i].agendaRecipentsResponses[a].subject,
                 content: this.dataObtain[i].agendaRecipentsResponses[a].description,
-                imgSrc: 'http://18.224.225.240/' + this.dataObtain[i].agendaRecipentsResponses[a].photoResponsable.substr('http://ec2-18-224-225-240.us-east-2.compute.amazonaws.com/'.length),
+                imgSrc: this.dataObtain[i].agendaRecipentsResponses[a].photoResponsable,
                 professor: this.dataObtain[i].agendaRecipentsResponses[a].responsable,
                 end: this.timeMethod(this.dataObtain[i].agendaRecipentsResponses[a].endHour[0], this.dataObtain[i].agendaRecipentsResponses[a].endHour[1])
               });
@@ -94,13 +96,15 @@ export class SchedulePage implements OnInit {
         if (b == 0) {
           setTimeout(() => this.errorHomework(), 1000);
         } else setTimeout(() => this.alertService.dismiss(), 1000);
+      }else{
+      this.errorHomework();
       }
-
     });
   }
 
   errorHomework() {
     this.alertService.dismiss();
+    this.flag = 1;
     this.alertService.errorSchedule('Verifique otra fecha en la agenda');
   }
 

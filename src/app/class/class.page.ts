@@ -96,7 +96,7 @@ export class ClassPage implements OnInit {
             name: this.configuration[i].subject,
             timetable: this.transfomList(this.configuration[i].schoolSchedules),
             professorName: this.configuration[i].legalNameTeacher,
-            img: 'http://18.224.225.240/' + this.configuration[i].photoSubject.substr('http://ec2-18-224-225-240.us-east-2.compute.amazonaws.com/'.length),
+            img:  this.configuration[i].photoSubject,
             classDetail: this.configuration[i].scores,
             photoProfessor: this.configuration[i].photoTeacher
           })

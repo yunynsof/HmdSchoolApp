@@ -44,6 +44,7 @@ export class CalendarPage implements OnInit {
   day;
   month;
   year;
+  flag;
 
   constructor(
     private appComponent: AppComponent,
@@ -67,6 +68,7 @@ export class CalendarPage implements OnInit {
       this.dataObtain = data;
       if (this.dataObtain != null) {
 
+        this.flag = 0;
         this.calendar = [];
         let b = 0;
         for (let i = 0; i < this.dataObtain.length; i++) {
@@ -91,12 +93,15 @@ export class CalendarPage implements OnInit {
         if (b == 0) {
           setTimeout(() => this.errorHomework(), 1000);
         } else setTimeout(() => this.alertService.dismiss(), 1000);
-      }
+      }else{
+        this.errorHomework();
+        }
     });
   }
 
   errorHomework() {
     this.alertService.dismiss();
+    this.flag = 1;
     this.alertService.errorCalendar('Verifique otra fecha en el calendario');
   }
 

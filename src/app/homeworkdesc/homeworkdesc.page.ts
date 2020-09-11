@@ -26,7 +26,7 @@ export class HomeworkdescPage implements OnInit {
 
       if (this.router.getCurrentNavigation().extras.state) {
     
-          this.class = this.router.getCurrentNavigation().extras.state.data.class;
+          this.class = this.router.getCurrentNavigation().extras.state.data.className;
           this.date =  this.router.getCurrentNavigation().extras.state.data.presentation_date[2] + ' ' + this.appComponent.obtainMonth(this.router.getCurrentNavigation().extras.state.data.presentation_date[1]) + ' ' + 'del' + ' ' + this.router.getCurrentNavigation().extras.state.data.presentation_date[0];
           this.detail = this.router.getCurrentNavigation().extras.state.data.tittle;
           this.score = this.router.getCurrentNavigation().extras.state.data.score;

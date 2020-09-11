@@ -28,15 +28,32 @@ ion-card {
   background-color: white;
 }
 
-.bg-image {
-  height: 100%;
-  width: 100%;
-  background-image: url("../../assets/icon/degradado5.jpg");
-  background-size: cover;
-  background-position: center;
-  padding: 0px 0px 0px 0px;
-  overflow: scroll;
+
+@media (orientation: landscape) {
+  
+  .bg-image {
+    height: 100%;
+    width: 100%;
+    background-image: url("../../assets/icon/unnamed.PNG");
+    background-size: 300px 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
+
+ @media (orientation: portrait) {
+  
+  .bg-image {
+    height: 90%;
+    width: 100%;
+    background-image: url("../../assets/icon/unnamed.PNG");
+    background-size: 300px 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+   }
+ }
+
+
 
 /*:host {
   ion-content {

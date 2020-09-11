@@ -18,6 +18,7 @@ export class ClassdetailPage implements OnInit {
   selectSegment;
   userDetails;
   professor;
+  img;
 
   constructor(
     private route: ActivatedRoute, 
@@ -30,11 +31,12 @@ export class ClassdetailPage implements OnInit {
 
         this.title = this.data.name;
         this.professor = this.data.professorName;
-        this.partialNotes(this.data.classDetail)
+        this.partialNotes(this.data.classDetail);
+        this.userDetails = { profileUrl: this.data.photoProfessor };
       }
     });
 
-    this.userDetails = { profileUrl: "./assets/icon/avatar.png" };
+ 
     this.selectSegment = 'profile';
   }
 

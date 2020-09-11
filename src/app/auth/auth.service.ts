@@ -15,7 +15,7 @@ const helper = new JwtHelperService();
 })
 export class AuthService {
 
-  URL_SERVER: string = 'http://18.224.225.240/hmd-schoolar-oit-backend';
+  URL_SERVER: string = 'http://45.56.78.139:8080/hmd-schoolar-oit-backend';
   authSubject = new BehaviorSubject(false);
   token: any;
 
@@ -219,6 +219,27 @@ export class AuthService {
   }
 
 
+  restorePassword(email) {
+  
+    let restore = {
+      email: email,
+      message: "Plantilla de la Autenticación",
+      subject: "Plantilla de la Autenticación"
+    };
+
+    return new Promise(resolve => {
+      this.httpClient.post(`${this.URL_SERVER}/web/email/v1/send`, restore).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+        this.alertService.dismiss();
+        this.alertService.errorConnection(err);
+      });
+    });
+  }
+
+
+
   isLoggedIn() {
     return this.authSubject.asObservable();
   }
@@ -252,6 +273,8 @@ export class AuthService {
   isAuth() {
     return localStorage.getItem(TOKEN_KEY);
   }
+
+
 
 }
 

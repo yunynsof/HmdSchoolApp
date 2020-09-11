@@ -50,6 +50,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -138,6 +139,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DriverStatusService,
     DataService,
     Camera,
+    UniqueDeviceID
   ],
   bootstrap: [AppComponent]
 })

@@ -51,6 +51,7 @@ export class HomeworkPage implements OnInit {
   mydate;
   tittle;
   homework = [];
+  flag;
 
   constructor(
     private router: Router,
@@ -80,9 +81,10 @@ export class HomeworkPage implements OnInit {
       this.monthTittle = null;
       if (this.dataObtain != null) {
 
+        this.flag = 0;
         this.weekfirst = this.dataObtain[0].presentationDate[2];
         this.weekLast = this.dataObtain[(this.dataObtain.length - 1)].presentationDate[2];
-        this.monthTittle = this.appComponent.obtainMonth((new Date().getMonth() + 1));
+        this.monthTittle = this.appComponent.obtainMonth((this.mydate._i.month + 1));
         this.tittle = 'Semana ' + this.weekfirst + ' al ' + this.weekLast + ' de ' + this.monthTittle;
         this.homework = [];
         for (let i = 0; i < this.dataObtain.length; i++) {
@@ -108,6 +110,7 @@ export class HomeworkPage implements OnInit {
 
   errorHomework() {
     this.alertService.dismiss();
+    this.flag = 1;
     this.alertService.errorHomework('Verifique otra fecha en el calendario');
   }
 

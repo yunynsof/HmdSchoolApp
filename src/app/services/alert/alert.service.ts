@@ -208,6 +208,34 @@ export class AlertService {
     });
   }
 
+  async alert(error) {
+
+    const alert = await this.alertController.create({
+      header: error,
+      mode: 'ios',
+      message: 'Agregue correo vinculado a Academics',
+      buttons: [{
+        text: 'Ok'
+      }]
+    });
+  
+    await alert.present();
+  }
+
+  async alertSuccess(message) {
+
+    const alert = await this.alertController.create({
+      header: message,
+      mode: 'ios',
+      message: 'Verifique bandeja de su correo',
+      buttons: [{
+        text: 'Ok'
+      }]
+    });
+  
+    await alert.present();
+  }
+
   async dismiss() {
     this.isLoading = false;
     return await this.loadingController.dismiss();

@@ -28,15 +28,31 @@
 }
 
 
-.bg-image {
-  height: 100%;
-  width: 100%;
-  background-image: url("../../assets/icon/class7.jpg");
-  background-size: cover;
-  background-position: center;
-  padding: 55px 15px 75px 15px;
-  overflow: scroll;
+
+@media (orientation: landscape) {
+  
+  .bg-image {
+    height: 100%;
+    width: 100%;
+    background-image: url("../../assets/icon/unnamed.PNG");
+    background-size: 300px 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
+
+ @media (orientation: portrait) {
+  
+  .bg-image {
+    height: 90%;
+    width: 100%;
+    background-image: url("../../assets/icon/unnamed.PNG");
+    background-size: 300px 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+   }
+ }
+
 
 .plusClass {
   display: flex;
